@@ -16,6 +16,9 @@ public class TS_SearchData {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/Applications/Brave Browser.app/Contents/MacOS/Brave Browser");
+        options.addArguments("--user-data-dir=" + System.getProperty("java.io.tmpdir") + "/brave-profile-" + System.currentTimeMillis());
+        options.addArguments("--remote-allow-origins=*");
+        options.setExperimentalOption("excludeSwitches", java.util.Collections.singletonList("test-type"));
         return new ChromeDriver(options);
     }
 
